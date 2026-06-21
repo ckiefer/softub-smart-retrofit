@@ -18,8 +18,9 @@ When the original control board on my Softub whirlpool died, replacement parts w
 
 > **Status:** Personal project, documented as I build it. Currently private while I finish testing; will be opened up once the build is stable.
 
-**[View the full wiring diagram](diagrams/wiring-diagram.html)**  
-*(Interactive HTML file — download or clone the repo and open it in a browser; GitHub's file preview also renders it reasonably well.)*
+![Wiring diagram](diagrams/wiring-diagram.svg)
+
+*[Download the interactive HTML version](diagrams/wiring-diagram.html) for a richer view with notes — open in any browser.*
 
 ## Motivation
 
