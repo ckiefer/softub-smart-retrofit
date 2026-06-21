@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Softub Smart Conversion – Wiring Diagram Rev 6</title>
+<title>Softub Whirlpool Smart Conversion – Wiring Diagram</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;600&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,10 +28,10 @@
 
 <header>
   <div>
-    <h1>Softub – Wiring Diagram <span class="badge" style="background:#1a1a1a">REV 6</span> <span class="badge" style="background:#0e9e8a">+ Water Analysis + Backup</span></h1>
-    <p>TH16A · Shelly→Kemo 35-100% · Ozonator · Tuya W218 water analysis · Sonoff backup circuit</p>
+    <h1>Softub Whirlpool – Wiring Diagram</h1>
+    <p>TH Elite · Shelly→Kemo 35-100% · Ozonator · Tuya W218 water analysis</p>
   </div>
-  <div class="meta">Rev 6.0 · 2026<br>230V AC / 50Hz</div>
+  <div class="meta">230V AC / 50Hz</div>
 </header>
 
 <div class="canvas-wrap">
@@ -46,12 +46,7 @@
     <marker id="apk" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#c87dd6"/></marker>
   </defs>
 
-  <!-- MAINS + RCD -->
-  <rect x="15" y="40" width="90" height="46" rx="4" fill="#f8fff8" stroke="#2e9e5b" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <text x="60" y="59" text-anchor="middle" font-size="9.5" fill="#2e9e5b" font-weight="500">RCD / GFCI</text>
-  <text x="60" y="74" text-anchor="middle" font-size="7.5" fill="#888">30mA external</text>
-  <line x1="60" y1="86" x2="60" y2="108" stroke="#2e9e5b" stroke-width="1.5" stroke-dasharray="4,3"/>
-
+  <!-- MAINS -->
   <rect x="15" y="108" width="90" height="70" rx="4" fill="#fff5f5" stroke="#d63a3a" stroke-width="2"/>
   <text x="60" y="127" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">MAINS</text>
   <text x="60" y="141" text-anchor="middle" font-size="7.5" fill="#555">230V/50Hz</text>
@@ -71,9 +66,9 @@
   <path d="M 105 169 H 142 V 154 H 169" stroke="#3a6bd6" stroke-width="2.2" fill="none" marker-end="url(#ab)"/>
   <path d="M 60 173 V 195 H 143 V 170 H 169" stroke="#2e9e5b" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#ag)"/>
 
-  <!-- SONOFF TH16A -->
+  <!-- SONOFF TH Elite -->
   <rect x="310" y="28" width="125" height="130" rx="4" fill="#fffbf0" stroke="#e08800" stroke-width="2"/>
-  <text x="372" y="47" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">SONOFF TH16A</text>
+  <text x="372" y="47" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">SONOFF TH Elite</text>
   <text x="372" y="60" text-anchor="middle" font-size="7.5" fill="#888">Temperature · 16A</text>
   <rect x="318" y="70" width="40" height="11" rx="2" fill="#ffe5e5"/><text x="338" y="79" text-anchor="middle" font-size="6.5" fill="#d63a3a">IN-L</text>
   <rect x="318" y="84" width="40" height="11" rx="2" fill="#e5eeff"/><text x="338" y="93" text-anchor="middle" font-size="6.5" fill="#3a6bd6">IN-N</text>
@@ -88,24 +83,10 @@
   <path d="M 250 138 H 285 V 76 H 310" stroke="#d63a3a" stroke-width="1.8" fill="none" marker-end="url(#ar)"/>
   <path d="M 250 154 H 292 V 90 H 310" stroke="#3a6bd6" stroke-width="1.8" fill="none" marker-end="url(#ab)"/>
 
-  <!-- SONOFF BACKUP (2x WLAN actuator + WTS01) -->
-  <rect x="470" y="15" width="150" height="100" rx="4" fill="#f5f5f5" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <rect x="525" y="8" width="60" height="14" rx="7" fill="#999"/>
-  <text x="555" y="19" text-anchor="middle" font-size="7" fill="#fff" font-weight="500">BACKUP</text>
-  <text x="545" y="36" text-anchor="middle" font-size="9" font-weight="500" fill="#555">SONOFF BASIC</text>
-  <text x="545" y="48" text-anchor="middle" font-size="7.5" fill="#888">2x WLAN actuator</text>
-  <text x="545" y="60" text-anchor="middle" font-size="7.5" fill="#888">+ 2x WTS01 sensor</text>
-  <text x="545" y="75" text-anchor="middle" font-size="7" fill="#aa6600">Spare in case TH16A fails</text>
-  <text x="545" y="88" text-anchor="middle" font-size="7" fill="#999">not wired · no enclosure</text>
-  <text x="545" y="100" text-anchor="middle" font-size="6.5" fill="#bbb">stored loose (no room in motor housing)</text>
-
-  <path d="M 435 76 H 470" stroke="#999" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
-  <text x="452" y="68" text-anchor="middle" font-size="6.5" fill="#999">optional</text>
-
-  <!-- SHELLY PLUS 0-10V -->
+  <!-- SHELLY DIMMER 0/1-10V PM Gen3 -->
   <rect x="310" y="200" width="140" height="115" rx="4" fill="#f0fff8" stroke="#0e9e8a" stroke-width="2"/>
   <text x="380" y="220" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">SHELLY</text>
-  <text x="380" y="233" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">PLUS 0-10V</text>
+  <text x="380" y="233" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">0/1-10V Gen3</text>
   <text x="380" y="246" text-anchor="middle" font-size="7.5" fill="#888">Dimmer · WiFi</text>
   <text x="380" y="258" text-anchor="middle" font-size="7" fill="#888">Mode: Detached switch</text>
   <rect x="318" y="267" width="52" height="11" rx="2" fill="#ffe5e5"/><text x="344" y="276" text-anchor="middle" font-size="6.5" fill="#d63a3a">L/N 230V</text>
@@ -151,14 +132,12 @@
   <rect x="560" y="350" width="140" height="60" rx="4" fill="#f0fffc" stroke="#0e9e8a" stroke-width="1.5"/>
   <text x="630" y="372" text-anchor="middle" font-size="9" font-weight="500" fill="#1a1a1a">OZONATOR</text>
   <text x="630" y="384" text-anchor="middle" font-size="7.5" fill="#555">FQ-220 · AC220V · passive</text>
-  <text x="630" y="396" text-anchor="middle" font-size="7" fill="#0e9e8a">→ Venturi in water line</text>
+  <text x="630" y="396" text-anchor="middle" font-size="7" fill="#0e9e8a">→ original Venturi injector</text>
   <path d="M 440 158 H 520 V 375 H 560" stroke="#0e9e8a" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#at)"/>
-  <text x="530" y="270" font-size="7" fill="#0e9e8a" transform="rotate(90,530,270)">230V via TH16A (permanent)</text>
+  <text x="530" y="270" font-size="7" fill="#0e9e8a" transform="rotate(90,530,270)">230V switched via TH Elite</text>
 
   <!-- TUYA W218 WATER ANALYSIS -->
   <rect x="780" y="350" width="170" height="105" rx="4" fill="#fdf0ff" stroke="#c87dd6" stroke-width="2"/>
-  <rect x="850" y="343" width="55" height="14" rx="7" fill="#c87dd6"/>
-  <text x="877" y="354" text-anchor="middle" font-size="7" fill="#fff" font-weight="500">NEW</text>
   <text x="865" y="372" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">TUYA W218</text>
   <text x="865" y="385" text-anchor="middle" font-size="7.5" fill="#888">8-in-1 water analysis · WiFi</text>
   <text x="865" y="397" text-anchor="middle" font-size="7" fill="#888">pH · ORP · TDS in water</text>
@@ -173,7 +152,7 @@
   <!-- Terminal block direct tap → Tuya W218 -->
   <path d="M 205 192 V 540 H 790 V 410" stroke="#d63a3a" stroke-width="1.5" fill="none" stroke-dasharray="6,3" marker-end="url(#apk)"/>
   <path d="M 218 192 V 525 H 800 V 426" stroke="#3a6bd6" stroke-width="1.5" fill="none" stroke-dasharray="6,3" marker-end="url(#ab)"/>
-  <text x="450" y="552" text-anchor="middle" font-size="7.5" fill="#c87dd6">Direct tap from terminal block (own line, independent of TH16A)</text>
+  <text x="450" y="552" text-anchor="middle" font-size="7.5" fill="#c87dd6">Direct tap from terminal block (own line, independent of TH Elite)</text>
 
   <!-- PE RAIL -->
   <line x1="205" y1="176" x2="205" y2="490" stroke="#2e9e5b" stroke-width="1.5" stroke-dasharray="4,3"/>
@@ -181,14 +160,6 @@
   <line x1="927" y1="490" x2="927" y2="343" stroke="#2e9e5b" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ag)"/>
   <text x="560" y="503" text-anchor="middle" font-size="7.5" fill="#2e9e5b">PE – protective earth (pump housing)</text>
 
-  <!-- TITLE BLOCK -->
-  <rect x="15" y="460" width="290" height="48" rx="3" fill="#fafafa" stroke="#ddd"/>
-  <text x="24" y="476" font-size="7.5" fill="#aaa">PROJECT</text>
-  <text x="24" y="490" font-size="8.5" font-weight="500" fill="#333">Softub Electronics Conversion Rev 6</text>
-  <text x="24" y="501" font-size="6.5" fill="#aaa">+ Tuya W218 water analysis, Sonoff backup in storage</text>
-  <line x1="195" y1="460" x2="195" y2="508" stroke="#ddd"/>
-  <text x="204" y="476" font-size="7.5" fill="#aaa">REV</text>
-  <text x="204" y="490" font-size="8.5" fill="#333">6.0 · 2026</text>
 
 </svg>
 </div>
@@ -198,15 +169,13 @@
   <div class="leg-item"><div class="leg-line" style="background:#3a6bd6"></div>Neutral N</div>
   <div class="leg-item"><div class="leg-line" style="background:#2e9e5b;opacity:0.7"></div>Protective earth PE</div>
   <div class="leg-item"><div class="leg-line" style="background:#c8a000"></div>0–10V control signal</div>
-  <div class="leg-item"><div class="leg-line" style="background:#0e9e8a"></div>Ozonator (permanent with TH16A)</div>
+  <div class="leg-item"><div class="leg-line" style="background:#0e9e8a"></div>Ozonator (switched via TH Elite)</div>
   <div class="leg-item"><div class="leg-line" style="background:#c87dd6"></div>Tuya W218 (direct terminal tap)</div>
-  <div class="leg-item"><div class="leg-line" style="background:#999"></div>Sonoff backup (storage, not wired)</div>
 </div>
 
 <div class="note">
-  ✔ Tuya W218 is connected directly to the terminal block (own 230V line) – runs permanently, independent of TH16A.<br>
+  ✔ Tuya W218 is connected directly to the terminal block (own 230V line) – runs permanently, independent of TH Elite.<br>
   ✔ The W218's pH/ORP/TDS probes go into the pool water · the temperature probe instead measures the Kemo housing temperature (operating temperature of interest).<br>
-  ℹ Sonoff Basic ×2 + WTS01 ×2 are kept as backup/spare in storage – not currently permanently wired.<br>
   ⚠ During continuous 100% operation the Kemo gets warmer – check housing temperature occasionally.
 </div>
 

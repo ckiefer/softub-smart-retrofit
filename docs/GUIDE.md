@@ -1,89 +1,97 @@
 # Build Guide
 
-A walkthrough of the conversion in the order it was actually done. Read [`SAFETY.md`](SAFETY.md) first.
+A walkthrough of the conversion in the order it was actually done. Read the [Disclaimer & Safety](../README.md#disclaimer--safety) section in the README first.
 
-## 1. Remove the original electronics
+## 1. Remove the Original Electronics
 
-Unplug the spa. Wait at least 5 minutes and discharge any capacitors before touching anything.
+Unplug the whirlpool. Wait at least 5 minutes and discharge any capacitors before touching anything.
+
+![Original control board and motor assembly, top view](../images/02-original-control-board-overview.jpg)
 
 Photograph and label every wire before disconnecting it — the original board's labelling (relay, transformer, valve) is not obvious once it's in pieces. Remove:
 
 - The main control PCB (Softub Inc., marked "C-2013" on the unit used here)
 - The Zettler relay (rated 220V coil, 30A/277VAC contacts — this was the switching element for the pump)
-- The Isonic solenoid valve (12VDC, normally-closed, used in the original design as a Venturi-effect ozone injector — see [`COMPONENTS.md`](COMPONENTS.md) for why this turned out to be unnecessary in the new design)
+
+![Zettler AZ2700-2A-220A relay — removed](../images/13-zettler-relay.jpg)
+- The Isonic solenoid valve (12VDC, normally-closed — part of the original ozone circuit, no longer needed since the new 220V ozonator connects directly to the existing Venturi injector)
+
+![Isonic V1C06-AY1 solenoid valve — removed, not reused](../images/12-isonic-solenoid-valve.jpg)
+
 - The Aquatemp transformer (230V primary, 12V secondary — only powered the control logic, not the motor)
+- The original AquaSunOzone XL-30 ozonator (12V DC — replaced by a new 220V passive unit that doesn't need the transformer)
 
-None of these are reused.
+![Original AquaSunOzone XL-30 ozonator — removed, replaced](../images/03-original-ozonator-label.jpg)
 
-## 2. Identify the motor wiring
+None of these are reused. The original pool LED light was also not re-installed — it would have required additional components (driver, controller) for little practical benefit.
 
-The motor has four leads: live, neutral, earth, and a capacitor tap. **Do not assume colours match EU convention** — many components in this build (motor, ozonator) use US/Asian colour conventions where black is sometimes neutral and white is sometimes live, and the two devices in this particular build used *opposite* conventions from each other.
+![Original PCB internals — Zettler relay, transformers, wiring](../images/04-original-pcb-internals.jpg)
 
-Verify with a multimeter before connecting anything:
-1. Set the meter to continuity/resistance mode.
-2. With the device unplugged, measure resistance between each pair of leads.
-3. Two leads will show a resistance value (these are the winding — live and neutral). One will show open circuit / no continuity to the others (this is the capacitor tap, or earth if the housing is metal and earth is bonded to it).
-4. For polarity (which is live vs. neutral), check the printed motor nameplate if available, or treat both as electrically equivalent if the motor is a simple single-phase capacitor-start type — for this kind of motor, swapping live/neutral simply reverses rotation direction, with no damage risk. Run it briefly without the capacitor connected first (it will hum but not spin) to confirm it's electrically intact before wiring the capacitor.
+## 2. Mount the Terminal Block
 
-## 3. Mount the terminal block
+Install on the left side of the motor housing, positioned so all downstream components can reach it with reasonably short runs. This is the single point all new wiring radiates from — getting its position right first makes everything after it easier.
 
-Install on a stable bracket or mounting plate inside the housing, positioned so all downstream components can reach it with reasonably short runs. This is the single point all new wiring radiates from — getting its position right first makes everything after it easier.
+## 3. Wire the Capacitor
 
-## 4. Wire the capacitor
+![Original CSC capacitor — 20uF, 370VAC (replaced)](../images/06-original-capacitor-terminals.jpg)
 
+- Mount the new capacitor on the left side of the housing, next to the terminal block.
 - Confirm capacitance and voltage rating against the motor's original capacitor or nameplate spec (this build used 20µF / 450VAC as a replacement).
-- Crimp insulated 6.3mm spade connectors onto the motor and capacitor leads — see [`COMPONENTS.md`](COMPONENTS.md) for crimping tool/die notes.
+- Crimp insulated 6.3mm spade connectors onto the motor and capacitor leads — see [COMPONENTS.md](COMPONENTS.md) for crimping tool/die notes.
 - The capacitor has two electrically-identical spade terminal pairs per side; use one per side and insulate the unused spare with heat shrink, since it sits exposed inside a housing that does see condensation.
 
-## 5. Wire the TH16A
+## 4. Wire the Sonoff TH Elite
 
-- Terminal block L/N → TH16A IN-L/IN-N
-- TH16A OUT-L/OUT-N → downstream to the Shelly/Kemo chain and the ozonator (see wiring diagram)
-- DS18B20 → TH16A's dedicated sensor input, with a 4.7kΩ pull-up resistor between data and VCC
-- Mount the DS18B20 probe somewhere it reads actual water temperature, not trapped air
+- Terminal block L/N → TH Elite IN-L/IN-N
+- TH Elite OUT-L/OUT-N → downstream to the Shelly/Kemo chain and the ozonator (see wiring diagram)
+- DS18B20 → TH Elite's dedicated sensor input
+- Mount the DS18B20 probe in the same position where the original temperature sensor sat, sealed in place with silicone to keep it waterproof and in direct contact with the water
 
-## 6. Wire the Shelly Plus 0-10V Dimmer
+## 5. Wire the Shelly Dimmer 0/1-10V PM Gen3
 
-- TH16A OUT-L/OUT-N → Shelly L/N (the Shelly needs its own mains supply to be able to output a signal at all — this is easy to miss, since the app will happily show a percentage value even with zero volts actually present on the output if the device itself isn't powered)
+- TH Elite OUT-L/OUT-N → Shelly L/N (the Shelly needs its own mains supply to be able to output a signal at all — this is easy to miss, since the app will happily show a percentage value even with zero volts actually present on the output if the device itself isn't powered)
 - Shelly 0–10V output (+ / –) → Kemo's 0–10V signal input
-- In the Shelly app:
-  - Set the input type to **"Detached switch"** (decoupled from the relay) — the default "single-button dimming" mode expects a physical button on S1/S2 and may not output correctly without one
-  - Set min/max brightness to **35% / 100%**
-  - Set "action on power-on" to **"turns on when powered"**, not "restore last state" — this guarantees it always starts at the 35% floor rather than potentially resuming whatever value it was left at
+- Configure the Shelly app settings — see [APP-SETTINGS.md](APP-SETTINGS.md) for details
 
-## 7. Wire the Kemo M240
+## 6. Wire the Kemo M240
+
+![Kemo M240 Power Control — wired with 0-10V signal and 230V I/O](../images/16-new-kemo-m240-wired.jpg)
 
 - Shelly's 0–10V output → Kemo's "0-10V/DC" input terminals (the small left-hand pair — easy to overlook on first glance, since most of the visible wiring on this device sits on the right-hand 230V side)
-- TH16A's switched output → Kemo "INPUT 230VAC"
+- TH Elite's switched output → Kemo "INPUT 230VAC"
 - Kemo "OUTPUT LOAD" → pump motor live
 - Pump motor neutral → terminal block neutral (shared with everything else)
 
-## 8. Wire the ozonator
+## 7. Wire the Ozonator
 
-- Identify live/neutral/earth on the ozonator's cable using a multimeter (do not assume colour convention — see step 2's warning, which applies here too).
-- Wire it electrically in parallel with the Kemo's output to the pump, so it only receives power while the pump is actually running.
-- Connect the air-side tubing: ozonator output → check valve (oriented away from the ozonator) → Venturi injector fitted into the water line.
+- Mount the ozonator on the right side of the housing.
+- Wire it to the TH Elite's switched output (fixed 230V), so it receives power whenever the TH Elite is on and the pump is running.
+- Connect the ozonator's air output to the existing ozone tubing. The Venturi injector and check valve in the water line are original Softub parts and stay in place — only the ozonator unit itself is replaced.
+
+![Ozone tubing routed to original Venturi injector](../images/20-ozone-tubing-venturi.jpg)
+
 - This ozonator has no internal air pump — it cannot push ozone into still water. If it's tested with the pump off and "nothing seems to happen," that's expected: test by holding the open end of the air tubing under water with the pump running.
 
-## 9. Wire the Tuya W218 water analyzer
+## 8. Wire the Tuya W218 Water Analyzer
 
-- Tap power directly from the terminal block (own L/N leads), independent of the TH16A switched circuit, so it stays on even when the pump cycle is off.
+- Mount the Tuya W218 on the right side of the housing.
+- The W218 runs on 24V via its own power adapter — use a short extension cable to reach the nearest mains outlet from the terminal block.
+- Tap power directly from the terminal block (own L/N leads), independent of the TH Elite switched circuit, so it stays on even when the pump cycle is off.
 - pH, ORP, and TDS probes go into the pool water.
-- The temperature probe in this build does **not** go into the water — see [`COMPONENTS.md`](COMPONENTS.md) for why it's mounted on the Kemo housing instead. Mount it wherever you actually want it measuring.
+- The temperature probe in this build does **not** go into the water — see [COMPONENTS.md](COMPONENTS.md) for why it's mounted on the Kemo housing instead. Mount it wherever you actually want it measuring.
 
-## 10. Final assembly
+## 9. Final Assembly
+
+![New components packed into motor housing with foam padding](../images/19-housing-reassembly.jpg)
 
 - Route all 230V wiring and all low-voltage signal/sensor wiring with as much physical separation as the enclosure allows.
 - Every junction inside the housing goes through a sealed gel-box connector (Wago) — condensation inside this enclosure is routine, not an edge case.
 - Pack foam/padding material where needed to keep components from rattling against the housing or each other — offcuts work fine, this doesn't need to be pretty.
 
-## 11. Test before refilling
+## 10. Test Before Refilling
 
-1. With the spa still empty of water, plug in and verify the TH16A powers on and its display/app shows correctly.
+![UNI-T UT133A multimeter used for verification](../images/14-multimeter-testing.jpg)
+
+1. With the whirlpool still empty of water, plug in and verify the TH Elite powers on and its display/app shows correctly.
 2. Check the Shelly app connects and reports status.
-3. Set the Shelly to 35% and confirm — with a multimeter — that roughly 3.5V DC appears across the Kemo's signal input terminals.
-4. Confirm the Kemo's output terminals show a proportional AC voltage.
-5. Briefly run the pump dry (a few seconds only) to confirm rotation and that nothing smells hot or sounds wrong, then stop before any heat buildup.
-6. Refill, then re-test the full cycle with water present, checking actual water flow at low (35%) and high (100%) settings, and confirming ozone bubbles appear at the Venturi injection point while the pump runs.
-
-See [`TROUBLESHOOTING.md`](TROUBLESHOOTING.md) for problems encountered during this exact sequence and how they were diagnosed.
+3. Briefly run the pump dry (a few seconds only) to confirm rotation and that nothing smells hot or sounds wrong, then stop before any heat buildup.
