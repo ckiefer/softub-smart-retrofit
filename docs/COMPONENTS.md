@@ -21,8 +21,6 @@ The 35% floor exists because the pump's single-phase induction motor has a minim
 
 ### Kemo M240
 
-![Kemo M240 Power Control wired up](../images/16-new-kemo-m240-wired.jpg)
-
 A small German-made AC power controller. Takes 230V in on one side, and a 0–10V DC signal on a galvanically isolated control side, and outputs a proportional AC voltage to the pump. This is what makes the pump variable-speed instead of just on/off.
 
 ## Pump & Motor
@@ -30,8 +28,6 @@ A small German-made AC power controller. Takes 230V in on one side, and a 0–10
 ### Original Balboa Motor
 
 ![Balboa motor label](../images/09-balboa-motor-label.jpg)
-
-![Balboa pump/motor assembly with heater coil and foam insulation](../images/15-motor-assembly-removed.jpg)
 
 Kept from the original installation. Custom pump made by Balboa Water Group (GG Industries) exclusively for Softub — confirmed discontinued by Balboa with no modern replacement available.
 
@@ -41,8 +37,6 @@ Kept from the original installation. Custom pump made by Balboa Water Group (GG 
 Single-phase induction motor with a separate run capacitor terminal. US-style wire colour convention (black = neutral, white = live on this particular unit — verified by resistance measurement, not assumed, since this is the opposite of EU convention and also opposite of the colour convention used by the ozonator, on the same build).
 
 ### CBB60 Run Capacitor (20µF, 450VAC)
-
-![Original CSC capacitor label — 20uF, 370VAC, dated 2014](../images/05-original-capacitor-label.jpg)
 
 <!-- TODO: add photo of new CBB60 replacement capacitor with crimped spade connectors -->
 
@@ -67,8 +61,6 @@ Its temperature probe is **not** in the water — it's mounted on the Kemo M240'
 Central L/N/PE distribution point. Everything downstream branches from here rather than daisy-chaining off the mains plug directly.
 
 ### Wago 221 Lever Connectors + Wago Gel Boxes
-
-![Shelly and Kemo wired with Wago 221 lever connectors](../images/17-new-shelly-and-kemo.jpg)
 
 <!-- TODO: add photo of sealed Wago gel box connectors -->
 

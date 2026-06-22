@@ -14,6 +14,10 @@ Retrofit of a Softub Legend (T-140S/T-220S/T-300S, 230V/1400W) portable whirlpoo
 
 ![Softub motor housing exterior](images/01-softub-exterior.jpg)
 
+![Original capacitor in situ](images/25-original-capacitor-in-situ.jpg)
+
+![Original board side view — Softub C-2013 label, cable glands](images/28-original-board-side-view.jpg)
+
 When the original control board on my Softub whirlpool died, replacement parts were scarce and the design itself was a closed black box. This project replaces it entirely with off-the-shelf smart home components: a Sonoff TH Elite handles temperature-based switching, a Shelly 0-10V dimmer paired with a Kemo M240 power controller gives the pump stepless speed control from a quiet 35% up to full 100% jet mode, a passive ozonator handles disinfection via the original Venturi injector, and a Tuya WiFi water analyzer keeps live pH/ORP/TDS readings without any proprietary app. Fully documented: wiring diagrams, bill of materials, and build guide.
 
 > **Status:** Personal project, documented as I build it. Currently private while I finish testing; will be opened up once the build is stable.
@@ -23,8 +27,6 @@ When the original control board on my Softub whirlpool died, replacement parts w
 *[Download the interactive HTML version](diagrams/wiring-diagram.html) for a richer view with notes — open in any browser.*
 
 ## Motivation
-
-![Original Softub topside control panel](images/08-softub-topside-panel.jpg)
 
 The Softub Legend (~10 years old) stopped working: the motor wouldn't start and the JET button on the topside panel showed no reaction. The motor had intermittent starting difficulties before the complete failure.
 
@@ -47,7 +49,7 @@ Rather than paying CHF 1,000+ for a like-for-like repair of a proprietary, non-r
 | Water chemistry monitoring          | Tuya W218 (pH / ORP / TDS), temp probe on the Kemo housing  |
 | Distribution                        | Terminal block, Wago lever connectors, waterproof gel boxes |
 
-![New smart components wired: TH Elite, Shelly dimmer, Kemo M240](images/18-new-th-elite-wired.jpg)
+![Original capacitor in situ — next to motor housing](images/25-original-capacitor-in-situ.jpg)
 
 See [docs/COMPONENTS.md](docs/COMPONENTS.md) for what each part does and why it was chosen, and [bom/bill-of-materials.md](bom/bill-of-materials.md) for the full parts list with sources and prices.
 
@@ -61,8 +63,6 @@ See [docs/COMPONENTS.md](docs/COMPONENTS.md) for what each part does and why it 
 ## Disclaimer & Safety
 
 > **This project involves 230V AC mains wiring. Incorrect wiring can cause fire, electric shock, or death.**
-
-![Softub rating plate — 230V ~50Hz, 6.0A, 1400W, IPX5 Class 1](images/07-softub-rating-plate.jpg)
 
 This is a personal DIY project by a hobbyist — **not** a licensed electrician and **not** an electrical engineer. It has not been professionally reviewed, certified, or inspected. The wiring, component choices, and design documented here may contain errors. This is not a UL/CE/IEC-certified design.
 
@@ -79,9 +79,6 @@ This is a personal DIY project by a hobbyist — **not** a licensed electrician 
 - Discharge the pump capacitor (CBB60, 450V) before handling.
 - **Wire colours verified with a multimeter, never assumed from colour alone.** Components in this build use conflicting regional conventions — the motor uses US colours (black = neutral, white = live) while the ozonator uses the exact opposite. Neither matches EU convention (brown/blue). The original motor wiring was also in poor condition (corroded spade terminals, degraded insulation) and needed repairing before reconnecting.
 
-![Motor wires — US color convention (green=earth, black, white/yellow)](images/10-motor-wires-us-colors.jpg)
-
-![Motor internal terminals — corroded, needed repair](images/11-motor-internal-terminals.jpg)
 - Protective earth (PE) connected on every metal enclosure.
 - Low-voltage signal wiring physically separated from 230V wiring.
 - All connectors inside the motor housing use sealed gel-box connectors (Wago) — condensation is routine, not an edge case.

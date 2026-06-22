@@ -6,6 +6,10 @@ A walkthrough of the conversion in the order it was actually done. Read the [Dis
 
 Unplug the whirlpool. Wait at least 5 minutes and discharge any capacitors before touching anything.
 
+![Softub rating plate — 230V ~50Hz, 6.0A, 1400W, IPX5 Class 1](../images/07-softub-rating-plate.jpg)
+
+![Original Softub topside control panel](../images/08-softub-topside-panel.jpg)
+
 ![Original control board and motor assembly, top view](../images/02-original-control-board-overview.jpg)
 
 Photograph and label every wire before disconnecting it — the original board's labelling (relay, transformer, valve) is not obvious once it's in pieces. Remove:
@@ -21,11 +25,29 @@ Photograph and label every wire before disconnecting it — the original board's
 - The Aquatemp transformer (230V primary, 12V secondary — only powered the control logic, not the motor)
 - The original AquaSunOzone XL-30 ozonator (12V DC — replaced by a new 220V passive unit that doesn't need the transformer)
 
-![Original AquaSunOzone XL-30 ozonator — removed, replaced](../images/03-original-ozonator-label.jpg)
+![Original AquaSunOzone XL-30 ozonator — old unit, was installed in the motor housing](../images/03-original-ozonator-label.jpg)
+
+![Original capacitor with spade terminals — removed](../images/06-original-capacitor-terminals.jpg)
+
+![Motor wires — US color convention (green=earth, black, white/yellow)](../images/10-motor-wires-us-colors.jpg)
+
+![Motor internal terminals — corroded, needed repair](../images/11-motor-internal-terminals.jpg)
+
+![Balboa pump/motor assembly with heater coil and foam insulation](../images/15-motor-assembly-removed.jpg)
 
 None of these are reused. The original pool LED light was also not re-installed — it would have required additional components (driver, controller) for little practical benefit.
 
 ![Original PCB internals — Zettler relay, transformers, wiring](../images/04-original-pcb-internals.jpg)
+
+![Original PCB still mounted in aluminum bracket](../images/21-original-pcb-in-housing.jpg)
+
+![Original PCB removed, laid flat — Softub C-2013, serial 9037622](../images/22-original-pcb-removed-flat.jpg)
+
+![Original Isonic ozonator mounted in housing corner with yellow tubing](../images/24-original-isonic-in-situ.jpg)
+
+![Unscrewing copper mounting bracket that held the original control board](../images/26-copper-mounting-bracket.jpg)
+
+![Unscrewing motor housing cover — rusted screws, temperature probe visible](../images/27-unscrewing-motor-housing.jpg)
 
 ## 2. Mount the Terminal Block
 
@@ -33,7 +55,7 @@ Install on the left side of the motor housing, positioned so all downstream comp
 
 ## 3. Wire the Capacitor
 
-![Original CSC capacitor — 20uF, 370VAC (replaced)](../images/06-original-capacitor-terminals.jpg)
+![Original CSC capacitor label — 20uF, 370VAC, dated 2014](../images/05-original-capacitor-label.jpg)
 
 - Mount the new capacitor on the left side of the housing, next to the terminal block.
 - Confirm capacitance and voltage rating against the motor's original capacitor or nameplate spec (this build used 20µF / 450VAC as a replacement).
@@ -64,11 +86,19 @@ Install on the left side of the motor housing, positioned so all downstream comp
 
 ## 7. Wire the Ozonator
 
+![Original AquaSunOzone XL-30 for reference — replaced by the new FQ-220](../images/03-original-ozonator-label.jpg)
+
+![Isonic solenoid valve — the old magnetic valve used in the original ozone circuit, no longer needed](../images/12-isonic-solenoid-valve.jpg)
+
+![Original Isonic ozonator in situ — mounted in housing corner](../images/24-original-isonic-in-situ.jpg)
+
+![Original board side view — showing ozonator and housing layout](../images/28-original-board-side-view.jpg)
+
+<!-- TODO: add photo of new 220V passive ozonator installed on right side -->
+
 - Mount the ozonator on the right side of the housing.
 - Wire it to the TH Elite's switched output (fixed 230V), so it receives power whenever the TH Elite is on and the pump is running.
 - Connect the ozonator's air output to the existing ozone tubing. The Venturi injector and check valve in the water line are original Softub parts and stay in place — only the ozonator unit itself is replaced.
-
-![Ozone tubing routed to original Venturi injector](../images/20-ozone-tubing-venturi.jpg)
 
 - This ozonator has no internal air pump — it cannot push ozone into still water. If it's tested with the pump off and "nothing seems to happen," that's expected: test by holding the open end of the air tubing under water with the pump running.
 
@@ -82,15 +112,19 @@ Install on the left side of the motor housing, positioned so all downstream comp
 
 ## 9. Final Assembly
 
+![Shelly and Kemo wired with Wago 221 lever connectors](../images/17-new-shelly-and-kemo.jpg)
+
+![TH Elite, Shelly dimmer, Kemo M240 all wired together](../images/18-new-th-elite-wired.jpg)
+
 ![New components packed into motor housing with foam padding](../images/19-housing-reassembly.jpg)
+
+![Reassembly top view — components, cable glands, ozone tubing](../images/23-reassembly-top-view.jpg)
 
 - Route all 230V wiring and all low-voltage signal/sensor wiring with as much physical separation as the enclosure allows.
 - Every junction inside the housing goes through a sealed gel-box connector (Wago) — condensation inside this enclosure is routine, not an edge case.
 - Pack foam/padding material where needed to keep components from rattling against the housing or each other — offcuts work fine, this doesn't need to be pretty.
 
 ## 10. Test Before Refilling
-
-![UNI-T UT133A multimeter used for verification](../images/14-multimeter-testing.jpg)
 
 1. With the whirlpool still empty of water, plug in and verify the TH Elite powers on and its display/app shows correctly.
 2. Check the Shelly app connects and reports status.
