@@ -1,30 +1,29 @@
 # Changelog
 
-## 2026-06-21 — Documentation Overhaul
+## 2026-06-22 — Documentation Overhaul
 
 ### Added
-- `images/` folder with 20 curated build photos (renamed from raw camera files), covering disassembly, original components, new smart components, and reassembly
-- Photo references throughout all documentation files
-- Expanded disclaimer and safety section in `README.md` covering: no professional qualification, no liability, no guarantee of correctness, local regulations, insurance/warranty implications, and build safety rules
-- Table of contents in `README.md`
-- Motivation section with full failure story, repair quote, and Balboa part numbers
-- `docs/APP-SETTINGS.md` for software-side configuration (Sonoff TH Elite, Shelly, Home Assistant)
-- `bom/bill-of-materials.md` (converted from Excel, with resolved formulas and computed totals)
+- 28 curated build photos in `images/` (renamed, resized to 1600px for web)
+- `docs/APP-SETTINGS.md` — Sonoff TH Elite, Shelly Dimmer, and Home Assistant configuration
+- `bom/bill-of-materials.md` — full parts list with prices, source links, and computed totals (282.33 CHF)
+- `diagrams/wiring-diagram.svg` — standalone SVG for GitHub rendering
+- `CHANGELOG.md`
+- Motivation section with failure story, official repair quote (CHF 1,100), and Balboa part numbers
+- Disclaimer & Safety section with build rules, wire colour warning, and replication advice
 
 ### Changed
-- Renamed title from "Softub Smart Conversion" to "Softub Whirlpool Smart Conversion"
-- Replaced "spa" with "whirlpool" across all docs
-- Renamed "Sonoff TH16A" to "Sonoff TH Elite" across all docs
-- Renamed "Shelly Plus 0-10V Dimmer" to "Shelly Dimmer 0/1-10V PM Gen3" across all docs
-- Rewrote disclaimer section from a short paragraph to a structured list with safety rules
-- Clarified Venturi injector and check valve are original factory parts (reused, not new)
-- Updated wiring diagram to match all documentation changes
+- Renamed Sonoff TH16A → TH Elite, Shelly Plus 0-10V → Dimmer 0/1-10V PM Gen3
+- Replaced "spa" with "whirlpool", title to "Softub Whirlpool Smart Conversion"
+- Clarified Venturi injector and check valve are original factory parts (reused)
+- Updated wiring diagram: naming, removed backup section and RCD/project blocks
+- BOM source names now link to product pages (Galaxus, AliExpress)
+- Merged Water Care into Control & Smart Home in BOM
+- Title case on all headings across all files
 
 ### Removed
-- `docs/SAFETY.md` — merged into README Disclaimer & Safety section
-- `docs/TROUBLESHOOTING.md` — content distributed to README (motivation, safety) and GUIDE (removed parts)
+- `docs/SAFETY.md` — merged into README
+- `docs/TROUBLESHOOTING.md` — distributed to README and GUIDE
+- `bom/bill-of-materials.xlsx` — replaced by Markdown
 - `diagrams/conversion-overview.html`
-- `LICENSE` file
-- `bom/bill-of-materials.xlsx`
-- Repository structure, roadmap, and license sections from README
-- Backup/spares section from BOM and COMPONENTS
+- `LICENSE`
+- Backup/spares, abandoned bypass relay design, repository structure, roadmap sections
