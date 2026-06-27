@@ -19,15 +19,23 @@ Unplug the whirlpool. Wait at least 5 minutes and discharge any capacitors befor
 
 ![Original Softub topside control panel](../images/08-softub-topside-panel.jpg)
 
+### Open the Motor Housing
+
 ![Unscrewing motor housing cover — rusted screws, temperature probe visible](../images/27-unscrewing-motor-housing.jpg)
 
 ![Original control board and motor assembly, top view](../images/02-original-control-board-overview.jpg)
+
+### Document Before Disconnecting
+
+Photograph and label every wire before disconnecting it — the original board's labelling (relay, transformer, valve) is not obvious once it's in pieces.
 
 ![Original PCB still mounted in aluminum bracket](../images/21-original-pcb-in-housing.jpg)
 
 ![Original Isonic valve mounted in housing corner with yellow tubing](../images/24-original-isonic-in-situ.jpg)
 
-Photograph and label every wire before disconnecting it — the original board's labelling (relay, transformer, valve) is not obvious once it's in pieces.
+![Isonic valve and air hoses on the electronics housing](../images/10-motor-wires-us-colors.jpg)
+
+### Remove the Control Board
 
 ![Unscrewing copper mounting bracket that held the original control board](../images/26-copper-mounting-bracket.jpg)
 
@@ -35,9 +43,8 @@ Photograph and label every wire before disconnecting it — the original board's
 
 ![Original PCB internals — Zettler relay, transformers, wiring](../images/04-original-pcb-internals.jpg)
 
-Remove:
+### Remove Individual Components
 
-- The main control PCB (Softub Inc., marked "C-2013" on the unit used here)
 - The Zettler relay (rated 220V coil, 30A/277VAC contacts — this was the switching element for the pump)
 
 ![Zettler AZ2700-2A-220A relay — removed](../images/13-zettler-relay.jpg)
@@ -46,12 +53,10 @@ Remove:
 
 ![Isonic V1C06-AY1 solenoid valve — removed from original board, reused in new circuit](../images/12-isonic-solenoid-valve.jpg)
 
-![Isonic valve and air hoses on the electronics housing](../images/10-motor-wires-us-colors.jpg)
-
 - The Aquatemp transformer (230V primary, 12V secondary — only powered the control logic, not the motor)
-- The original AquaSunOzone XL-30 ozonator (12V DC — replaced by a new 220V passive unit that doesn't need the transformer)
+- The original AquaSunOzone XL-30 ozonator (12V DC — replaced by the new FQT-124 that doesn't need the transformer)
 
-![Original AquaSunOzone XL-30 ozonator — old unit, was installed in the motor housing](../images/03-original-ozonator-label.jpg)
+![Original AquaSunOzone XL-30 ozonator — removed](../images/03-original-ozonator-label.jpg)
 
 - The original capacitor
 
@@ -59,7 +64,7 @@ Remove:
 
 None of these are reused, except the Isonic solenoid valve which is reinstalled in the new ozone circuit. The original pool LED light was also not re-installed — it would have required additional components (driver, controller) for little practical benefit.
 
-Remove the pump/motor assembly from the housing and inspect the wiring and terminals before reconnecting:
+### Remove and Inspect the Pump/Motor
 
 ![Balboa pump/motor assembly removed — heater coil and foam insulation](../images/15-motor-assembly-removed.jpg)
 
