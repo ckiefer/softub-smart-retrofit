@@ -1,5 +1,29 @@
 # Changelog
 
+## 2026-06-27 — Hardware Revision: Simplified Switching
+
+### Changed
+- Removed Shelly Dimmer 0/1-10V PM Gen3, Kemo M240, and Shelly 2.5 — TH Elite now switches pump, ozonator, and Isonic valve directly (all in parallel on the switched output)
+- Replaced FQ-220 ozonator with FQT-124 corona-discharge ozonator (39.99 CHF)
+- Isonic V1C06-AY1 magnetic valve (12VDC) reused from original Softub installation, powered via TH Elite's switched output through a 12V DC power supply
+- Tuya W218 temperature probe relocated from Kemo housing to electronics cabinet
+- Pump control changed from variable-speed (35–100%) to on/off — variable speed incompatible with this motor
+- Updated wiring diagrams (SVG + HTML) to reflect simplified layout
+- Added Table of Contents to COMPONENTS.md, GUIDE.md, APP-SETTINGS.md, and bill-of-materials.md
+- BOM: Wago connectors, cable glands, and gel boxes moved to consumables
+- BOM: Consumables section moved before Tools section
+
+### Removed
+- Shelly Dimmer 0/1-10V PM Gen3 (16.70 CHF)
+- Kemo M240 power controller (41.90 CHF)
+- Shelly 2.5 (12.00 CHF) — not needed when TH Elite switches everything directly
+- LiYY 4x0.25mm² control cable (no longer needed without 0-10V signal)
+- 0–10V control signal path from wiring diagrams
+
+### Added
+- 12V DC power supply for Isonic valve (~5.00 CHF estimated)
+- Isonic valve section in COMPONENTS.md and GUIDE.md
+
 ## 2026-06-22 — Documentation Overhaul
 
 ### Added
