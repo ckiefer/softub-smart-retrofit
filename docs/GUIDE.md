@@ -17,18 +17,33 @@ A walkthrough of the conversion in the order it was actually done. Read the [Dis
 
 Unplug the whirlpool. Wait at least 5 minutes and discharge any capacitors before touching anything.
 
+![Original Softub topside control panel](../images/08-softub-topside-panel.jpg)
+
 ![Softub rating plate — 230V ~50Hz, 6.0A, 1400W, IPX5 Class 1](../images/07-softub-rating-plate.jpg)
 
-![Original Softub topside control panel](../images/08-softub-topside-panel.jpg)
+![Unscrewing motor housing cover — rusted screws, temperature probe visible](../images/27-unscrewing-motor-housing.jpg)
 
 ![Original control board and motor assembly, top view](../images/02-original-control-board-overview.jpg)
 
-Photograph and label every wire before disconnecting it — the original board's labelling (relay, transformer, valve) is not obvious once it's in pieces. Remove:
+![Original PCB still mounted in aluminum bracket](../images/21-original-pcb-in-housing.jpg)
+
+![Original Isonic valve mounted in housing corner with yellow tubing](../images/24-original-isonic-in-situ.jpg)
+
+Photograph and label every wire before disconnecting it — the original board's labelling (relay, transformer, valve) is not obvious once it's in pieces.
+
+![Unscrewing copper mounting bracket that held the original control board](../images/26-copper-mounting-bracket.jpg)
+
+![Original PCB removed, laid flat — Softub C-2013, serial 9037622](../images/22-original-pcb-removed-flat.jpg)
+
+![Original PCB internals — Zettler relay, transformers, wiring](../images/04-original-pcb-internals.jpg)
+
+Remove:
 
 - The main control PCB (Softub Inc., marked "C-2013" on the unit used here)
 - The Zettler relay (rated 220V coil, 30A/277VAC contacts — this was the switching element for the pump)
 
 ![Zettler AZ2700-2A-220A relay — removed](../images/13-zettler-relay.jpg)
+
 - The Isonic solenoid valve (V1C06-AY1, 12VDC, normally-closed) — **set aside for reuse** in the new ozone circuit, where it will be switched by the TH Elite via a 12V DC power supply
 
 ![Isonic V1C06-AY1 solenoid valve — removed from original board, reused in new circuit](../images/12-isonic-solenoid-valve.jpg)
@@ -38,27 +53,19 @@ Photograph and label every wire before disconnecting it — the original board's
 
 ![Original AquaSunOzone XL-30 ozonator — old unit, was installed in the motor housing](../images/03-original-ozonator-label.jpg)
 
+- The original capacitor
+
 ![Original capacitor with spade terminals — removed](../images/06-original-capacitor-terminals.jpg)
+
+None of these are reused, except the Isonic solenoid valve which is reinstalled in the new ozone circuit. The original pool LED light was also not re-installed — it would have required additional components (driver, controller) for little practical benefit.
+
+Inspect the motor wiring and terminals before reconnecting:
 
 ![Motor wires — US color convention (green=earth, black, white/yellow)](../images/10-motor-wires-us-colors.jpg)
 
 ![Motor internal terminals — corroded, needed repair](../images/11-motor-internal-terminals.jpg)
 
 ![Balboa pump/motor assembly with heater coil and foam insulation](../images/15-motor-assembly-removed.jpg)
-
-None of these are reused, except the Isonic solenoid valve which is reinstalled in the new ozone circuit. The original pool LED light was also not re-installed — it would have required additional components (driver, controller) for little practical benefit.
-
-![Original PCB internals — Zettler relay, transformers, wiring](../images/04-original-pcb-internals.jpg)
-
-![Original PCB still mounted in aluminum bracket](../images/21-original-pcb-in-housing.jpg)
-
-![Original PCB removed, laid flat — Softub C-2013, serial 9037622](../images/22-original-pcb-removed-flat.jpg)
-
-![Original Isonic ozonator mounted in housing corner with yellow tubing](../images/24-original-isonic-in-situ.jpg)
-
-![Unscrewing copper mounting bracket that held the original control board](../images/26-copper-mounting-bracket.jpg)
-
-![Unscrewing motor housing cover — rusted screws, temperature probe visible](../images/27-unscrewing-motor-housing.jpg)
 
 ## 2. Mount the Terminal Block
 
