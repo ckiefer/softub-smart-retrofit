@@ -59,13 +59,13 @@ Remove:
 
 None of these are reused, except the Isonic solenoid valve which is reinstalled in the new ozone circuit. The original pool LED light was also not re-installed — it would have required additional components (driver, controller) for little practical benefit.
 
-Inspect the motor wiring and terminals before reconnecting:
+Remove the pump/motor assembly from the housing and inspect the wiring and terminals before reconnecting:
+
+![Balboa pump/motor assembly removed — heater coil and foam insulation](../images/15-motor-assembly-removed.jpg)
 
 ![Motor wires — US color convention (green=earth, black, white/yellow)](../images/10-motor-wires-us-colors.jpg)
 
 ![Motor internal terminals — corroded, needed repair](../images/11-motor-internal-terminals.jpg)
-
-![Balboa pump/motor assembly with heater coil and foam insulation](../images/15-motor-assembly-removed.jpg)
 
 ## 2. Mount the Terminal Block
 
