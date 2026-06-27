@@ -83,12 +83,6 @@ Install on the left side of the motor housing, positioned so all downstream comp
 
 ## 5. Wire the Ozonator and Isonic Valve
 
-![Original AquaSunOzone XL-30 for reference — replaced by the FQT-124](../images/03-original-ozonator-label.jpg)
-
-![Isonic V1C06-AY1 solenoid valve — reused from original, switched via TH Elite](../images/12-isonic-solenoid-valve.jpg)
-
-![Original Isonic valve in situ — mounted in housing corner](../images/24-original-isonic-in-situ.jpg)
-
 <!-- TODO: add photo of new FQT-124 ozonator installed -->
 
 - Mount the FQT-124 ozonator on the right side of the housing.

@@ -46,8 +46,6 @@ Rather than paying CHF 1,000+ for a like-for-like repair of a proprietary, non-r
 | Water chemistry monitoring          | Tuya W218 (pH / ORP / TDS), temp probe in electronics cabinet |
 | Distribution                        | Terminal block, Wago lever connectors, waterproof gel boxes |
 
-![Original capacitor in situ — next to motor housing](images/25-original-capacitor-in-situ.jpg)
-
 See [docs/COMPONENTS.md](docs/COMPONENTS.md) for what each part does and why it was chosen, and [bom/bill-of-materials.md](bom/bill-of-materials.md) for the full parts list with sources and prices.
 
 ## Quick Start
