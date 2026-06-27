@@ -103,7 +103,7 @@ Install on the left side of the motor housing, positioned so all downstream comp
 
 ## 7. Final Assembly
 
-![TH Elite wired to pump, ozonator, and Isonic valve](../images/18-new-th-elite-wired.jpg)
+![TH Elite with terminal connections visible](../images/20-ozone-tubing-venturi.jpg)
 
 ![New components packed into motor housing with foam padding](../images/19-housing-reassembly.jpg)
 
