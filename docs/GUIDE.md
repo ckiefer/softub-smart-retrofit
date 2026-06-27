@@ -19,8 +19,6 @@ Unplug the whirlpool. Wait at least 5 minutes and discharge any capacitors befor
 
 ![Original Softub topside control panel](../images/08-softub-topside-panel.jpg)
 
-![Softub rating plate — 230V ~50Hz, 6.0A, 1400W, IPX5 Class 1](../images/07-softub-rating-plate.jpg)
-
 ![Unscrewing motor housing cover — rusted screws, temperature probe visible](../images/27-unscrewing-motor-housing.jpg)
 
 ![Original control board and motor assembly, top view](../images/02-original-control-board-overview.jpg)
@@ -48,6 +46,8 @@ Remove:
 
 ![Isonic V1C06-AY1 solenoid valve — removed from original board, reused in new circuit](../images/12-isonic-solenoid-valve.jpg)
 
+![Isonic valve and air hoses on the electronics housing](../images/10-motor-wires-us-colors.jpg)
+
 - The Aquatemp transformer (230V primary, 12V secondary — only powered the control logic, not the motor)
 - The original AquaSunOzone XL-30 ozonator (12V DC — replaced by a new 220V passive unit that doesn't need the transformer)
 
@@ -63,7 +63,7 @@ Remove the pump/motor assembly from the housing and inspect the wiring and termi
 
 ![Balboa pump/motor assembly removed — heater coil and foam insulation](../images/15-motor-assembly-removed.jpg)
 
-![Motor wires — US color convention (green=earth, black, white/yellow)](../images/10-motor-wires-us-colors.jpg)
+![Motor wires — US color convention (green=earth, black, white/yellow)](../images/07-softub-rating-plate.jpg)
 
 ![Motor internal terminals — corroded, needed repair](../images/11-motor-internal-terminals.jpg)
 
