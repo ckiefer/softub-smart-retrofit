@@ -1,27 +1,29 @@
 # Components
 
+## Table of Contents
+
+- [Control & Smart Home](#control--smart-home)
+- [Pump & Motor](#pump--motor)
+- [Water Treatment](#water-treatment)
+- [Distribution & Wiring](#distribution--wiring)
+- [Tools Used](#tools-used)
+
 What each part does, why it was chosen, and what it replaced.
 
-> All of the active control and sensor components (TH Elite, Shelly, Tuya W218) are WiFi-native devices, chosen deliberately so they can later be brought into an existing Home Assistant setup for unified dashboards and automations, rather than being locked into separate single-purpose apps.
+> The active control and sensor components (TH Elite, Tuya W218) are WiFi-native devices, chosen deliberately so they can later be brought into an existing Home Assistant setup for unified dashboards and automations, rather than being locked into separate single-purpose apps.
 
 ## Control & Smart Home
 
 ### Sonoff TH Elite
-The master switch for the whole system. Reads water temperature via the DS18B20 probe and switches 230V to everything downstream (Shelly/Kemo chain and the ozonator) once a target temperature is reached. Rated 16A, well above what the pump draws.
+The master switch for the whole system. Reads water temperature via the DS18B20 probe and switches 230V to everything downstream (pump, ozonator, and Isonic valve) once a target temperature is reached. Rated 16A, well above what the pump draws.
 
 Replaces: the original Softub control board's temperature logic, which lived on a sealed, non-repairable PCB.
 
 ### DS18B20 Temperature Probe
 Waterproof 1-Wire digital temperature sensor, wired into the TH Elite's dedicated sensor input. Needs a 4.7kΩ pull-up resistor between data and VCC.
 
-### Shelly Dimmer 0/1-10V PM Gen3
-Generates a 0–10V DC control signal from the Shelly app, which the Kemo M240 (below) interprets as a target pump speed. Configured as a "decoupled switch" (output independent of any physical button input), with output limited to a 35–100% range in the app's brightness settings, and configured to power on at 35% whenever it receives mains power — never at 0%, and never silently resuming whatever percentage it was left at before a power cycle.
-
-The 35% floor exists because the pump's single-phase induction motor has a minimum breakaway torque requirement: below roughly 3–3.5V (30–35%) the motor doesn't have enough force to start turning and will just hum and heat up, which is genuinely bad for the windings if sustained.
-
-### Kemo M240
-
-A small German-made AC power controller. Takes 230V in on one side, and a 0–10V DC signal on a galvanically isolated control side, and outputs a proportional AC voltage to the pump. This is what makes the pump variable-speed instead of just on/off.
+### Isonic V1C06-AY1 Magnetic Valve
+Normally-closed 12VDC solenoid valve, reused from the original Softub installation. Sits between the ozonator and the Venturi injector, powered from the TH Elite's switched output via a cheap 12V DC power supply (any small 12VDC adapter will do — widely available from many sources). When the TH Elite relay closes, the valve opens and allows the Venturi vacuum (created by the running pump) to pull ozone into the water.
 
 ## Pump & Motor
 
@@ -44,8 +46,8 @@ Replacement for the original (failed) capacitor. Has two pairs of spade terminal
 
 ## Water Treatment
 
-### Ozonator (Passive, 220V)
-Replaces the original AquaSunOzone XL-30 (12V DC, which required the now-removed Aquatemp transformer to run). The new unit is a simple 220V corona-discharge ozone generator with no internal air pump. It cannot push ozone into the water by itself — it relies entirely on the Venturi effect from the original Softub plumbing (Venturi injector and check valve are both reused from the factory installation), which draws a vacuum and pulls the ozone gas in when the pump is running. This is why the ozonator is wired in parallel with the pump's switched output rather than to a permanently-on circuit: running it while the pump is stopped does nothing (no vacuum, no flow), so there's no point giving it independent control.
+### Ozonator (FQT-124, Corona Discharge)
+Replaces the original AquaSunOzone XL-30 (12V DC, which required the now-removed Aquatemp transformer to run). The FQT-124 is a corona-discharge ozone generator with no internal air pump. Switched by the TH Elite together with the pump and Isonic magnetic valve — all three power on and off with the temperature relay. It cannot push ozone into the water by itself — it relies entirely on the Venturi effect from the original Softub plumbing (Venturi injector and check valve are both reused from the factory installation), which draws a vacuum and pulls the ozone gas through the Isonic valve and into the water when the pump is running.
 
 ### Tuya W218 Water Analyzer
 
@@ -53,7 +55,7 @@ Replaces the original AquaSunOzone XL-30 (12V DC, which required the now-removed
 
 An 8-in-1 WiFi water quality monitor with probes for pH, ORP, and TDS that sit directly in the pool water, plus a temperature probe input. Wired independently off the terminal block (its own 230V tap, not switched by the TH Elite), so it keeps reporting water chemistry continuously, even between heating/filter cycles.
 
-Its temperature probe is **not** in the water — it's mounted on the Kemo M240's housing instead, purely out of curiosity about how warm the controller actually gets under load. Worth knowing if you're reading this device's "temperature" reading and expecting it to mean water temperature: it doesn't, in this build.
+Its temperature probe is **not** in the water — it's mounted inside the electronics cabinet instead, where it monitors the enclosure's ambient temperature rather than the water temperature.
 
 ## Distribution & Wiring
 

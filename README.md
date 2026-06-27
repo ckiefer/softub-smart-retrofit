@@ -10,7 +10,7 @@
 
 ## Summary
 
-Retrofit of a Softub Legend (T-140S/T-220S/T-300S, 230V/1400W) portable whirlpool's dead OEM control board with WiFi smart-home parts — variable-speed pump (Shelly + Kemo), temperature control (Sonoff TH Elite), passive ozone disinfection, and live pH/ORP/TDS water monitoring.
+Smart conversion of a Softub Legend (T-140S/T-220S/T-300S, 230V/1400W) portable whirlpool — replacing the dead OEM control board with WiFi smart-home parts: temperature control and switching (Sonoff TH Elite), corona-discharge ozone disinfection, and live pH/ORP/TDS water monitoring.
 
 ![Softub motor housing exterior](images/01-softub-exterior.jpg)
 
@@ -18,7 +18,7 @@ Retrofit of a Softub Legend (T-140S/T-220S/T-300S, 230V/1400W) portable whirlpoo
 
 ![Original board side view — Softub C-2013 label, cable glands](images/28-original-board-side-view.jpg)
 
-When the original control board on my Softub whirlpool died, replacement parts were scarce and the design itself was a closed black box. This project replaces it entirely with off-the-shelf smart home components: a Sonoff TH Elite handles temperature-based switching, a Shelly 0-10V dimmer paired with a Kemo M240 power controller gives the pump stepless speed control from a quiet 35% up to full 100% jet mode, a passive ozonator handles disinfection via the original Venturi injector, and a Tuya WiFi water analyzer keeps live pH/ORP/TDS readings without any proprietary app. Fully documented: wiring diagrams, bill of materials, and build guide.
+When the original control board on my Softub whirlpool died, replacement parts were scarce and the design itself was a closed black box. This project replaces it entirely with off-the-shelf smart home components: a Sonoff TH Elite handles temperature-based switching and powers the pump, ozonator, and Isonic ozone valve whenever the target temperature hasn't been reached, a corona-discharge ozonator handles disinfection via the original Venturi injector, and a Tuya WiFi water analyzer keeps live pH/ORP/TDS readings without any proprietary app. Fully documented: wiring diagrams, bill of materials, and build guide.
 
 > **Status:** Personal project, documented as I build it. Currently private while I finish testing; will be opened up once the build is stable.
 
@@ -32,21 +32,18 @@ The Softub Legend (~10 years old) stopped working: the motor wouldn't start and 
 
 The official service partner diagnosed a defective control board plus an age-related capacitor and quoted **CHF 1,100** for the repair (negotiated down to CHF 1,000). The capacitor alone was quoted at CHF 99. Balboa Water Group confirmed that the pump (part 1019230, motor 1114033 — MTR USM 1660 1HP 1SP 5.4A HV/50Hz) is a custom unit made exclusively for Softub and is **discontinued** with no modern replacement available.
 
-Rather than paying CHF 1,000+ for a like-for-like repair of a proprietary, non-repairable control board with no remote control and only on/off pump operation, the entire control system was replaced with off-the-shelf smart home components for **under CHF 300**. The original Balboa motor was kept — only the control electronics were replaced. The new system is:
+Rather than paying CHF 1,000+ for a like-for-like repair of a proprietary, non-repairable control board with no remote control and only on/off pump operation, the entire control system was replaced with off-the-shelf smart home components for **under CHF 185** (see [bill of materials](bom/bill-of-materials.md)). The original Balboa motor was kept — only the control electronics were replaced. The new system is:
 
 - **Repairable** — every part is a standard, replaceable component, not a proprietary board
-- **Remotely controllable** — temperature, pump speed, and water chemistry are all visible and adjustable from a phone
-- **Variable-speed** — the pump can run anywhere from a quiet 35% filtration speed up to full 100% jet power, instead of just on/off
+- **Remotely controllable** — temperature and water chemistry are visible and controllable from a phone
 
 ## Components
 
 | Function                            | Component                                                   |
 | ----------------------------------- | ----------------------------------------------------------- |
 | Temperature control / main switch   | Sonoff TH Elite + DS18B20 probe                             |
-| Variable pump speed (0–10V control) | Shelly Dimmer 0/1-10V PM Gen3                                    |
-| Power stage for the pump motor      | Kemo M240 power controller                                  |
-| Ozone disinfection                  | Passive 220V ozonator (original Venturi injector reused)    |
-| Water chemistry monitoring          | Tuya W218 (pH / ORP / TDS), temp probe on the Kemo housing  |
+| Ozone disinfection                  | FQT-124 corona-discharge ozonator + Isonic V1C06-AY1 valve (original Venturi injector reused) |
+| Water chemistry monitoring          | Tuya W218 (pH / ORP / TDS), temp probe in electronics cabinet |
 | Distribution                        | Terminal block, Wago lever connectors, waterproof gel boxes |
 
 ![Original capacitor in situ — next to motor housing](images/25-original-capacitor-in-situ.jpg)
@@ -75,7 +72,7 @@ This is a personal DIY project by a hobbyist — **not** a licensed electrician 
 ### Safety Rules Followed in This Build
 
 - Always unplug before touching anything — never just switch off.
-- Upstream 30mA RCD/GFCI is mandatory (Type A is sufficient — the Kemo M240 is a phase-angle controller, not a DC-producing VFD).
+- Upstream 30mA RCD/GFCI is mandatory.
 - Discharge the pump capacitor (CBB60, 450V) before handling.
 - **Wire colours verified with a multimeter, never assumed from colour alone.** Components in this build use conflicting regional conventions — the motor uses US colours (black = neutral, white = live) while the ozonator uses the exact opposite. Neither matches EU convention (brown/blue). The original motor wiring was also in poor condition (corroded spade terminals, degraded insulation) and needed repairing before reconnecting.
 
