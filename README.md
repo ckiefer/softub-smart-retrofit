@@ -2,23 +2,20 @@
 
 ## Table of Contents
 
-- [Summary](#summary)
 - [Motivation](#motivation)
 - [Components](#components)
 - [Quick Start](#quick-start)
 - [Disclaimer & Safety](#disclaimer--safety)
 
-## Summary
+## Motivation
 
-Smart conversion of a Softub Legend (T-140S/T-220S/T-300S, 230V/1400W) portable whirlpool — replacing the dead OEM control board with WiFi smart-home parts: temperature control and switching (Sonoff TH Elite), corona-discharge ozone disinfection, and live pH/ORP/TDS water monitoring.
+The Softub Legend (~10 years old) stopped working: the motor wouldn't start and the JET button on the topside panel showed no reaction. The motor had intermittent starting difficulties before the complete failure.
 
 ![Softub motor housing exterior](images/01-softub-exterior.jpg)
 
-![Original capacitor in situ](images/25-original-capacitor-in-situ.jpg)
+The official service partner diagnosed a defective control board plus an age-related capacitor and quoted **CHF 1,100** for the repair (negotiated down to CHF 1,000). The capacitor alone was quoted at CHF 99. Balboa Water Group confirmed that the pump (part 1019230, motor 1114033 — MTR USM 1660 1HP 1SP 5.4A HV/50Hz) is a custom unit made exclusively for Softub and is **discontinued** with no modern replacement available.
 
-![Original board side view — Softub C-2013 label, cable glands](images/28-original-board-side-view.jpg)
-
-When the original control board on my Softub whirlpool died, replacement parts were scarce and the design itself was a closed black box. This project replaces it entirely with off-the-shelf smart home components: a Sonoff TH Elite handles temperature-based switching and powers the pump, ozonator, and Isonic ozone valve whenever the target temperature hasn't been reached, a corona-discharge ozonator handles disinfection via the original Venturi injector, and a Tuya WiFi water analyzer keeps live pH/ORP/TDS readings without any proprietary app. Fully documented: wiring diagrams, bill of materials, and build guide.
+Rather than paying CHF 1,000+ for a like-for-like repair of a proprietary, non-repairable control board with no remote control and only on/off pump operation, the entire control system was replaced with off-the-shelf smart home components for **under CHF 185** (see [bill of materials](bom/bill-of-materials.md)). The original Balboa motor was kept — only the control electronics were replaced. A Sonoff TH Elite handles temperature-based switching and powers the pump, ozonator, and Isonic ozone valve, a corona-discharge ozonator handles disinfection via the original Venturi injector, and a Tuya WiFi water analyzer keeps live pH/ORP/TDS readings without any proprietary app.
 
 > **Status:** Personal project, documented as I build it. Currently private while I finish testing; will be opened up once the build is stable.
 
@@ -26,13 +23,7 @@ When the original control board on my Softub whirlpool died, replacement parts w
 
 *[Download the interactive HTML version](diagrams/wiring-diagram.html) for a richer view with notes — open in any browser.*
 
-## Motivation
-
-The Softub Legend (~10 years old) stopped working: the motor wouldn't start and the JET button on the topside panel showed no reaction. The motor had intermittent starting difficulties before the complete failure.
-
-The official service partner diagnosed a defective control board plus an age-related capacitor and quoted **CHF 1,100** for the repair (negotiated down to CHF 1,000). The capacitor alone was quoted at CHF 99. Balboa Water Group confirmed that the pump (part 1019230, motor 1114033 — MTR USM 1660 1HP 1SP 5.4A HV/50Hz) is a custom unit made exclusively for Softub and is **discontinued** with no modern replacement available.
-
-Rather than paying CHF 1,000+ for a like-for-like repair of a proprietary, non-repairable control board with no remote control and only on/off pump operation, the entire control system was replaced with off-the-shelf smart home components for **under CHF 185** (see [bill of materials](bom/bill-of-materials.md)). The original Balboa motor was kept — only the control electronics were replaced. The new system is:
+The new system is:
 
 - **Repairable** — every part is a standard, replaceable component, not a proprietary board
 - **Remotely controllable** — temperature and water chemistry are visible and controllable from a phone
