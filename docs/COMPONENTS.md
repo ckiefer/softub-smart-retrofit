@@ -49,6 +49,10 @@ Replacement for the original (failed) capacitor. Has two pairs of spade terminal
 ### Ozonator (FQT-124, Corona Discharge)
 Replaces the original AquaSunOzone XL-30 (12V DC, which required the now-removed Aquatemp transformer to run). The FQT-124 is a corona-discharge ozone generator with no internal air pump. Switched by the TH Elite together with the pump and Isonic magnetic valve — all three power on and off with the temperature relay. It cannot push ozone into the water by itself — it relies entirely on the Venturi effect from the original Softub plumbing (Venturi injector and check valve are both reused from the factory installation), which draws a vacuum and pulls the ozone gas through the Isonic valve and into the water when the pump is running.
 
+Chlorine tabs are also used, dosed reactively as needed (same cadence as pH-plus/minus) rather than continuously — ozone via the Venturi remains the automatic/always-on sanitizer, chlorine is a manual supplement.
+
+**Replaced once so far** — same model, same [AliExpress listing](https://de.aliexpress.com/item/1005008049726105.html), ~40 CHF. Corona-discharge ozonators are a wear part; budget for occasional replacement rather than treating the original unit as permanent.
+
 ### Tuya W218 Water Analyzer
 
 <!-- TODO: add photo of Tuya W218 controller unit and probes in water -->
