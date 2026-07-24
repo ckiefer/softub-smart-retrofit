@@ -1,0 +1,138 @@
+<svg viewBox="0 0 1080 570" width="4320" height="2280" xmlns="http://www.w3.org/2000/svg" font-family="'DM Mono', monospace">
+  <defs>
+    <marker id="ar" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#d63a3a"/></marker>
+    <marker id="ab" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#3a6bd6"/></marker>
+    <marker id="ag" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2e9e5b"/></marker>
+    <marker id="ap" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8b5cf6"/></marker>
+    <marker id="at" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#0e9e8a"/></marker>
+    <marker id="ay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#c8a000"/></marker>
+    <marker id="apk" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#c87dd6"/></marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="570" fill="#fff" rx="4"/>
+
+  <!-- Title (left-aligned to avoid DS18B20 overlap) -->
+  <text x="15" y="18" font-size="12" font-weight="500" fill="#1a1a1a">Softub Whirlpool – Wiring Diagram · 230V AC / 50Hz</text>
+
+  <!-- MAINS -->
+  <rect x="15" y="138" width="90" height="70" rx="4" fill="#fff5f5" stroke="#d63a3a" stroke-width="2"/>
+  <text x="60" y="157" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">MAINS</text>
+  <text x="60" y="171" text-anchor="middle" font-size="7.5" fill="#555">230V/50Hz</text>
+  <circle cx="27" cy="186" r="3.5" fill="#d63a3a"/><text x="35" y="189" font-size="7.5" fill="#d63a3a" font-weight="500">L</text>
+  <circle cx="27" cy="199" r="3.5" fill="#3a6bd6"/><text x="35" y="202" font-size="7.5" fill="#3a6bd6" font-weight="500">N</text>
+  <circle cx="60" cy="199" r="3.5" fill="#2e9e5b"/><text x="68" y="202" font-size="7.5" fill="#2e9e5b" font-weight="500">PE</text>
+
+  <!-- TERMINAL BLOCK -->
+  <rect x="160" y="122" width="90" height="100" rx="4" fill="#fafafa" stroke="#888" stroke-width="1.5"/>
+  <text x="205" y="141" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">TERMINAL</text>
+  <text x="205" y="154" text-anchor="middle" font-size="8.5" fill="#555">BLOCK</text>
+  <rect x="169" y="162" width="72" height="12" rx="2" fill="#ffe5e5"/><text x="205" y="172" text-anchor="middle" font-size="7.5" fill="#d63a3a" font-weight="500">L</text>
+  <rect x="169" y="178" width="72" height="12" rx="2" fill="#e5eeff"/><text x="205" y="188" text-anchor="middle" font-size="7.5" fill="#3a6bd6" font-weight="500">N</text>
+  <rect x="169" y="194" width="72" height="12" rx="2" fill="#e5ffe9"/><text x="205" y="204" text-anchor="middle" font-size="7.5" fill="#2e9e5b" font-weight="500">PE</text>
+
+  <!-- Mains → Terminal Block -->
+  <path d="M 105 186 H 135 V 168 H 169" stroke="#d63a3a" stroke-width="2.2" fill="none" marker-end="url(#ar)"/>
+  <path d="M 105 199 H 142 V 184 H 169" stroke="#3a6bd6" stroke-width="2.2" fill="none" marker-end="url(#ab)"/>
+  <path d="M 60 203 V 230 H 143 V 200 H 169" stroke="#2e9e5b" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#ag)"/>
+
+  <!-- SONOFF TH Elite -->
+  <rect x="310" y="58" width="125" height="130" rx="4" fill="#fffbf0" stroke="#e08800" stroke-width="2"/>
+  <text x="372" y="77" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">SONOFF TH Elite</text>
+  <text x="372" y="90" text-anchor="middle" font-size="7.5" fill="#888">Temperature · 16A</text>
+  <rect x="318" y="100" width="40" height="11" rx="2" fill="#ffe5e5"/><text x="338" y="109" text-anchor="middle" font-size="6.5" fill="#d63a3a">IN-L</text>
+  <rect x="318" y="114" width="40" height="11" rx="2" fill="#e5eeff"/><text x="338" y="123" text-anchor="middle" font-size="6.5" fill="#3a6bd6">IN-N</text>
+  <rect x="362" y="100" width="40" height="11" rx="2" fill="#ffe5e5"/><text x="382" y="109" text-anchor="middle" font-size="6.5" fill="#d63a3a">OUT-L</text>
+  <rect x="362" y="114" width="40" height="11" rx="2" fill="#e5eeff"/><text x="382" y="123" text-anchor="middle" font-size="6.5" fill="#3a6bd6">OUT-N</text>
+  <rect x="333" y="150" width="78" height="11" rx="2" fill="#f3e8ff"/><text x="372" y="159" text-anchor="middle" font-size="6.5" fill="#8b5cf6">SENSOR DS18B20</text>
+
+  <!-- DS18B20 -->
+  <rect x="310" y="18" width="125" height="20" rx="4" fill="#faf0ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="372" y="32" text-anchor="middle" font-size="8" font-weight="500" fill="#1a1a1a">DS18B20 · 1-Wire</text>
+  <line x1="372" y1="38" x2="372" y2="58" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#ap)"/>
+
+  <!-- Terminal Block → TH Elite -->
+  <path d="M 250 168 H 285 V 106 H 310" stroke="#d63a3a" stroke-width="1.8" fill="none" marker-end="url(#ar)"/>
+  <path d="M 250 184 H 292 V 120 H 310" stroke="#3a6bd6" stroke-width="1.8" fill="none" marker-end="url(#ab)"/>
+
+  <!-- TH Elite OUT-L → Pump -->
+  <path d="M 402 106 H 700" stroke="#d63a3a" stroke-width="2.2" fill="none" marker-end="url(#ar)"/>
+  <text x="580" y="99" text-anchor="middle" font-size="7.5" fill="#d63a3a">Switched L</text>
+
+  <!-- TH Elite OUT-N → Pump -->
+  <path d="M 402 120 H 700" stroke="#3a6bd6" stroke-width="1.8" fill="none" stroke-dasharray="3,2" marker-end="url(#ab)"/>
+  <text x="580" y="145" text-anchor="middle" font-size="7.5" fill="#3a6bd6">N</text>
+
+  <!-- Switched L trunk line (branches to ozonator + Isonic valve) -->
+  <path d="M 455 106 V 350" stroke="#d63a3a" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+  <!-- N trunk line (parallel) -->
+  <path d="M 463 120 V 350" stroke="#3a6bd6" stroke-width="1.2" fill="none" stroke-dasharray="3,2"/>
+  <text x="438" y="215" font-size="7" fill="#d63a3a" text-anchor="end">Switched</text>
+  <text x="438" y="225" font-size="7" fill="#d63a3a" text-anchor="end">L + N</text>
+
+  <!-- Branch: trunk → Ozonator -->
+  <path d="M 455 260 H 500" stroke="#0e9e8a" stroke-width="1.8" fill="none" marker-end="url(#at)"/>
+
+  <!-- Branch: trunk → 12V PSU → Isonic Valve -->
+  <path d="M 455 350 H 500" stroke="#c8a000" stroke-width="1.8" fill="none" marker-end="url(#ay)"/>
+  <text x="478" y="343" text-anchor="middle" font-size="6.5" fill="#c8a000">12V PSU</text>
+
+  <!-- CAPACITOR -->
+  <rect x="700" y="33" width="115" height="45" rx="4" fill="#fffff0" stroke="#c8a000" stroke-width="1.5"/>
+  <text x="757" y="53" text-anchor="middle" font-size="8.5" font-weight="500" fill="#1a1a1a">CAPACITOR</text>
+  <text x="757" y="66" text-anchor="middle" font-size="7.5" fill="#555">20µF · 450V AC</text>
+
+  <!-- PUMP -->
+  <rect x="700" y="88" width="115" height="75" rx="4" fill="#f0f6ff" stroke="#3a6bd6" stroke-width="2"/>
+  <text x="757" y="121" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">PUMP</text>
+  <text x="757" y="136" text-anchor="middle" font-size="7.5" fill="#555">Balboa · 230V</text>
+
+  <!-- Capacitor ↔ Pump -->
+  <path d="M 735 78 V 88" stroke="#c8a000" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+  <path d="M 780 78 V 88" stroke="#c8a000" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+  <!-- OZONATOR -->
+  <rect x="500" y="235" width="140" height="60" rx="4" fill="#f0fffc" stroke="#0e9e8a" stroke-width="1.5"/>
+  <text x="570" y="257" text-anchor="middle" font-size="9" font-weight="500" fill="#1a1a1a">OZONATOR</text>
+  <text x="570" y="269" text-anchor="middle" font-size="7.5" fill="#555">FQT-124 · corona discharge</text>
+  <text x="570" y="281" text-anchor="middle" font-size="7" fill="#0e9e8a">→ Isonic valve → Venturi injector</text>
+
+  <!-- Ozone tubing: Ozonator → Isonic Valve -->
+  <path d="M 570 295 V 325" stroke="#999" stroke-width="1.2" fill="none" stroke-dasharray="3,3"/>
+  <text x="585" y="313" font-size="6.5" fill="#999">ozone tubing</text>
+
+  <!-- ISONIC VALVE -->
+  <rect x="500" y="325" width="140" height="60" rx="4" fill="#fff8f0" stroke="#c8a000" stroke-width="2"/>
+  <text x="570" y="347" text-anchor="middle" font-size="9" font-weight="500" fill="#1a1a1a">ISONIC VALVE</text>
+  <text x="570" y="360" text-anchor="middle" font-size="7.5" fill="#555">V1C06-AY1 · 12VDC · NC</text>
+  <text x="570" y="373" text-anchor="middle" font-size="7" fill="#c8a000">→ ozone tubing → Venturi</text>
+
+  <!-- TUYA W218 WATER ANALYSIS -->
+  <rect x="700" y="245" width="170" height="105" rx="4" fill="#fdf0ff" stroke="#c87dd6" stroke-width="2"/>
+  <text x="785" y="267" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1a1a1a">TUYA W218</text>
+  <text x="785" y="280" text-anchor="middle" font-size="7.5" fill="#888">8-in-1 water analysis · WiFi</text>
+  <text x="785" y="292" text-anchor="middle" font-size="7" fill="#888">pH · ORP · TDS in water</text>
+  <rect x="710" y="300" width="60" height="11" rx="2" fill="#ffe5e5"/><text x="740" y="309" text-anchor="middle" font-size="6.5" fill="#d63a3a">230V supply</text>
+  <rect x="710" y="315" width="150" height="11" rx="2" fill="#f3e8ff"/><text x="785" y="324" text-anchor="middle" font-size="6.5" fill="#8b5cf6">Temp probe in electronics cabinet</text>
+  <text x="785" y="342" text-anchor="middle" font-size="6.5" fill="#aa6600">Power tap from terminal block</text>
+
+  <!-- Terminal block direct tap → Tuya W218 -->
+  <path d="M 205 222 V 460 H 710 V 305" stroke="#d63a3a" stroke-width="1.5" fill="none" stroke-dasharray="6,3" marker-end="url(#apk)"/>
+  <path d="M 218 222 V 445 H 720 V 321" stroke="#3a6bd6" stroke-width="1.5" fill="none" stroke-dasharray="6,3" marker-end="url(#ab)"/>
+  <text x="420" y="472" text-anchor="middle" font-size="7.5" fill="#c87dd6">Direct tap from terminal block (own line, independent of TH Elite)</text>
+
+  <!-- PE RAIL -->
+  <line x1="205" y1="206" x2="205" y2="410" stroke="#2e9e5b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="205" y1="410" x2="900" y2="410" stroke="#2e9e5b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <path d="M 690 410 V 125 H 700" stroke="#2e9e5b" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#ag)"/>
+  <text x="500" y="423" text-anchor="middle" font-size="7.5" fill="#2e9e5b">PE – protective earth (pump housing)</text>
+
+  <!-- LEGEND -->
+  <rect x="15" y="490" width="1050" height="40" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+  <rect x="30" y="505" width="20" height="3" rx="1" fill="#d63a3a"/><text x="55" y="510" font-size="7" fill="#444">Phase L (switched)</text>
+  <rect x="170" y="505" width="20" height="3" rx="1" fill="#3a6bd6"/><text x="195" y="510" font-size="7" fill="#444">Neutral N</text>
+  <rect x="275" y="505" width="20" height="3" rx="1" fill="#2e9e5b" opacity="0.7"/><text x="300" y="510" font-size="7" fill="#444">PE</text>
+  <rect x="345" y="505" width="20" height="3" rx="1" fill="#0e9e8a"/><text x="370" y="510" font-size="7" fill="#444">Ozonator (switched via TH Elite)</text>
+  <rect x="590" y="505" width="20" height="3" rx="1" fill="#c8a000"/><text x="615" y="510" font-size="7" fill="#444">Isonic valve (12V via PSU, switched via TH Elite)</text>
+  <rect x="900" y="505" width="20" height="3" rx="1" fill="#c87dd6"/><text x="925" y="510" font-size="7" fill="#444">Tuya W218</text>
+</svg>

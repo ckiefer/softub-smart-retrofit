@@ -9,3 +9,6 @@ Thumbs.db
 # Temporary/working files
 *.tmp
 ~$*
+
+# Original (unprocessed) images
+original_images/
