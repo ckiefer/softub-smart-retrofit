@@ -18,7 +18,7 @@ In the eWeLink app:
 
 ## Home Assistant Integration
 
-Water temperature, water quality, and heating control all run through Home Assistant now, not the eWeLink app's own logic. Full technical detail (entity IDs, the Tuya datapoint map, rebuild-from-scratch steps) lives in the private `home-assistant-setup` repo's [`docs/whirlpool-water-quality.md`](https://github.com/ckiefer/home-assistant-setup/blob/main/docs/whirlpool-water-quality.md) — this section is the summary for readers of *this* repo.
+Water temperature, water quality, and heating control all run through Home Assistant now, not the eWeLink app's own logic. Full technical detail (entity IDs, the Tuya datapoint map, rebuild-from-scratch steps) lives in the private `home-assistant-setup` repo's `docs/whirlpool-water-quality.md` — this section is the summary for readers of *this* repo.
 
 ### Why a custom integration was needed for the Tuya W218
 
