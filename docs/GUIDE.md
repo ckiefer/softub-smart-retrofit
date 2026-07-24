@@ -115,11 +115,11 @@ Install on the left side of the motor housing, positioned so all downstream comp
 
 ## 7. Final Assembly
 
-![TH Elite with terminal connections visible](../images/20-ozone-tubing-venturi.jpg)
+![Final assembly overview — ozonator, terminal wiring, and DC power supply packed into the motor housing](../images/19-housing-reassembly.jpg)
 
-![New components packed into motor housing with foam padding](../images/19-housing-reassembly.jpg)
+![Ozone tubing and Venturi fitting, cable glands at the base](../images/20-ozone-tubing-venturi.jpg)
 
-![Reassembly top view — components, cable glands, ozone tubing](../images/23-reassembly-top-view.jpg)
+![Terminal block wiring — brown/blue/green-yellow leads and DC barrel connectors for the Isonic valve supply](../images/23-reassembly-top-view.jpg)
 
 - Route all 230V wiring and all low-voltage signal/sensor wiring with as much physical separation as the enclosure allows.
 - Every junction inside the housing goes through a sealed gel-box connector (Wago) — condensation inside this enclosure is routine, not an edge case.
