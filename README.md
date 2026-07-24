@@ -6,6 +6,7 @@
 - [Components](#components)
 - [Quick Start](#quick-start)
 - [Disclaimer & Safety](#disclaimer--safety)
+- [Contact](#contact)
 
 ## Motivation
 
@@ -17,7 +18,7 @@ The official service partner diagnosed a defective control board plus an age-rel
 
 Rather than paying CHF 1,000+ for a like-for-like repair of a proprietary, non-repairable control board with no remote control and only on/off pump operation, the entire control system was replaced with off-the-shelf smart home components for **under CHF 185** (see [bill of materials](bom/bill-of-materials.md)). The original Balboa motor was kept — only the control electronics were replaced. A Sonoff TH Elite handles temperature-based switching and powers the pump, ozonator, and Isonic ozone valve, a corona-discharge ozonator handles automatic disinfection via the original Venturi injector (chlorine tabs are added manually as needed, same as pH-plus/minus), and a Tuya WiFi water analyzer keeps live pH/ORP/TDS readings without any proprietary app.
 
-> **Status:** Personal project, documented as I build it. Currently private while I finish testing; will be opened up once the build is stable.
+> **Status:** Personal project, documented as I build it and continues to evolve — check the commit history for the latest state.
 
 ![Wiring diagram](diagrams/wiring-diagram.svg)
 
@@ -74,3 +75,11 @@ This is a personal DIY project by a hobbyist — **not** a licensed electrician 
 - Have a qualified electrician inspect your wiring before first power-up.
 - Test incrementally with a multimeter at each stage, not all at once.
 - Keep the whirlpool empty of water during initial dry testing.
+
+## Contact
+
+Issues and Discussions are disabled on this repo. Pull requests (typo fixes, corrections)
+are welcome. For anything else, reach out at christoph.kiefer@gmail.com.
+
+Licensed under [CC BY-NC 4.0](LICENSE) — share and adapt freely for non-commercial use,
+with attribution.
