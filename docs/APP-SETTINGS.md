@@ -30,7 +30,7 @@ The fix: a small standalone poller (`tinytuya`, Python) running on the Pi host, 
 
 ### Entities
 
-- **Water temperature** — from the TH Elite itself (Sonoff's own local integration), not the Tuya device
+- **Water temperature** — from a Sonoff SNZB-02LD probe (Zigbee, via a ZBBridge-P), not the Tuya device. It originally came from the TH Elite's own wired DS18B20, but that probe failed on 2026-08-17: it drifted off on its own, climbing ~15 °C/hour with the pump off — impossible for 833 L, which would need ~14 kW — and converged on the electronics cabinet temperature instead of the water. Everything in Home Assistant reads a single `sensor.whirlpool_water_temperature` template sensor rather than a probe entity directly, so replacing the probe again is a one-line change. That sensor deliberately goes *unavailable* if the battery probe misses its heartbeats for an hour, which makes every rule fail safe instead of acting on a stale reading
 - **Water quality** — pH, ORP, TDS, salinity, conductivity, specific gravity, and a "Chlorine Factor" reading (kept only as an unvalidated curiosity — almost certainly a derived estimate, not an independent chlorine sensor) — all from the Tuya W218 via the custom poller above
 - **Power/Auto Mode switches** — the TH Elite's relay, exposed directly
 
