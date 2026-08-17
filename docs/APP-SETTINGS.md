@@ -40,7 +40,7 @@ The fix: a small standalone poller (`tinytuya`, Python) running on the Pi host, 
 
 Three rules enforced entirely in Home Assistant (not the eWeLink app), because combining "temperature hysteresis," "never run at night," and "force a filter cycle every hour" reliably in the on-device Thermostat/Loop-Timer/Schedule modes isn't something these devices do cleanly — they're mutually-exclusive modes on the relay, not layerable rules:
 
-- **09:00-18:00 only**: target 29°C, turns on below 28.5°C, off above 29.5°C — a periodic recheck every 5 minutes (not a crossing-triggered rule, which would miss the case where the temperature is already past a threshold when the automation starts or right after the nightly blackout)
+- **09:00-18:00 only**: turns on below (target − 0.5°C), off above (target + 0.5°C) — a periodic recheck every 5 minutes (not a crossing-triggered rule, which would miss the case where the temperature is already past a threshold when the automation starts or right after the nightly blackout). The target itself is a Home Assistant helper adjustable from the app, capped at 20-36°C by the helper, on an admin-only dashboard with a guard automation that reverts changes from non-allowlisted users
 - **Every hour on the hour, daytime only**: forces a 10-minute run regardless of temperature, for filtration/ozone circulation
 - **18:00**: unconditional off, no exceptions — pump/ozonator never run 18:00-09:00
 
