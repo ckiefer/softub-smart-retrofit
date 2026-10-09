@@ -40,7 +40,7 @@ The fix: a small standalone poller (`tinytuya`, Python) running on the Pi host, 
 
 Three rules enforced entirely in Home Assistant (not the eWeLink app), because combining "temperature hysteresis," "never run at night," and "force a filter cycle every hour" reliably in the on-device Thermostat/Loop-Timer/Schedule modes isn't something these devices do cleanly — they're mutually-exclusive modes on the relay, not layerable rules:
 
-- **09:00-18:00 only**: turns on below (target − 0.5°C), off above (target + 0.5°C) — a periodic recheck every 5 minutes (not a crossing-triggered rule, which would miss the case where the temperature is already past a threshold when the automation starts or right after the nightly blackout). The target itself is a Home Assistant helper adjustable from the app, capped at 20-36°C by the helper, on an admin-only dashboard with a guard automation that reverts changes from non-allowlisted users
+- **09:00-18:00 only**: turns on below (target − 0.5°C), off above (target + 0.5°C) — a periodic recheck every 5 minutes (not a crossing-triggered rule, which would miss the case where the temperature is already past a threshold when the automation starts or right after the nightly blackout). The target itself is a Home Assistant helper adjustable from the app, capped at 20-37°C by the helper, on an admin-only dashboard with a guard automation that reverts changes from non-allowlisted users
 - **Every hour on the hour, daytime only**: forces a 10-minute run regardless of temperature, for filtration/ozone circulation
 - **18:00**: unconditional off, no exceptions — pump/ozonator never run 18:00-09:00
 
@@ -48,6 +48,6 @@ Three rules enforced entirely in Home Assistant (not the eWeLink app), because c
 
 ### Water Advice
 
-A plain-language sensor checks current pH/ORP/TDS against Softub's own Water Treatment Guide targets (free chlorine 3-5 ppm via ORP as an automated stand-in since ppm isn't directly measurable here, pH 7.2-7.8) and tells you what to do — "pH high, add pH-minus," "ORP low, add a chlorine tab," etc. — plus a one-time push notification when something actually needs attention, not constant noise. Chlorine tabs are dosed reactively when this flags it, the same way pH-plus/minus are — there's no automatic chlorine dosing hardware in this build.
+A plain-language sensor checks current pH/ORP/TDS against Softub's own Water Treatment Guide targets (free chlorine 3-5 ppm via ORP as an automated stand-in since ppm isn't directly measurable here, pH 7.2-7.8) and tells you what to do — "pH high, add pH-minus," "ORP low, add a chlorine tab," etc.. It's shown on the dashboard only — there's no push notification for water chemistry (a daily one existed until October 2026 and was removed on purpose). Chlorine tabs are dosed reactively when this flags it, the same way pH-plus/minus are — there's no automatic chlorine dosing hardware in this build.
 
 <!-- TODO: add screenshot of the Water Advice tile / a notification example -->
